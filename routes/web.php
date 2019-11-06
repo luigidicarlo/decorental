@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('app-main');
+    return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('product', 'ProductController')->middleware('auth');
+Route::resource('category', 'CategoryController')->middleware('auth');
