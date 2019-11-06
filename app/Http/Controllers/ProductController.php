@@ -47,6 +47,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $this->validation($request);
+        $validated['user_id'] = auth()->id();
 
         Product::create($validated);
 
@@ -72,7 +73,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -84,7 +85,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($this->validation($request));
+
+        return redirect('/product');
     }
 
     /**
@@ -95,6 +98,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect('product');
     }
 }
