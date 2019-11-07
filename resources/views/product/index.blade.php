@@ -17,21 +17,32 @@
             </div>
 
             @if ($products->count())
-            
+
             <ul class="list-group">
                 @foreach ($products as $product)
                 <li class="list-group-item">
-                    {{ $product->name }}: {{ $product->price }} 
-                    <a href="/product/{{ $product->id }}/edit" class="btn btn-primary text-white mx-4">
-                        Editar
-                    </a>
-                    <form class="d-inline" action="/product/{{ $product->id }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger text-white">
-                            Eliminar
-                        </button>
-                    </form>
+                    <div class="clearfix">
+                        <div class="float-left mr-auto">
+                            <a href="/product/{{ $product->id }}">
+                                {{ $product->name }}
+                            </a>
+                            <span>
+                                | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
+                            </span>
+                        </div>
+                        <div class="float-right ml-auto">
+                            <a href="/product/{{ $product->id }}/edit" class="btn btn-primary text-white mx-4">
+                                Editar
+                            </a>
+                            <form class="d-inline" action="/product/{{ $product->id }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger text-white">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </li>
                 @endforeach
             </ul>

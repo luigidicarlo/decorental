@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function validation(Request $request) {
+        return $request->validate([
+            'name' => 'required|min:3|max:255',
+            'parent_id' => 'integer|min:0'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -24,7 +33,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::where('parent_id', 0)
+                                ->orderBy('name', 'asc')
+                                ->get();
+
+        return view('category.create', compact('categories'));
     }
 
     /**
@@ -35,7 +48,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($this->validation($request));
+
+        return redirect('/category');
     }
 
     /**
@@ -80,6 +95,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect('/category');
     }
 }

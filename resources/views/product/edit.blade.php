@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for="description">Descripción</label>
                     <br>
-                    <textarea name="description" id="description" rows="20" class="form-control"
+                    <textarea name="description" id="description" rows="8" class="form-control"
                         placeholder="Descripción del producto..." required>{{ $product->description }}</textarea>
                     @if ($errors->has('description'))
                         <span class="form-text text-danger">

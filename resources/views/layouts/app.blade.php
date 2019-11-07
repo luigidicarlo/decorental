@@ -34,7 +34,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a href="/product" class="nav-link">
+                                {{ __('Productos') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/category" class="nav-link">
+                                {{ __('Categorías') }}
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
