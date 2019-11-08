@@ -18,7 +18,7 @@
                             {{ __('Nombre') }}
                         </label>
                         <br>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Nombre de la categoría" required autofocus>
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre de la categoría" value="{{ old('name') }}" required autofocus>
                     </div>
 
                     <div class="form-group">

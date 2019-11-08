@@ -72,7 +72,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $categories = Category::where('parent_id', 0)
+                                ->orderBy('name', 'asc')
+                                ->get();
+        return view('category.edit', compact('category'), compact('categories'));
     }
 
     /**
@@ -84,7 +87,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($this->validation($request));
+
+        return redirect('/category');
     }
 
     /**
