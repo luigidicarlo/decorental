@@ -38,7 +38,7 @@
             <ul class="navbar-nav flex-row nav-side-right text-center mx">
                 <li class="nav-item icon">
                     <i class="fa fa-user"></i>  
-                    {{ __('Login') }}                          
+                    <a style="text-decoration: none; color: #000" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 <li class="nav-item icon">
                     <i class="fa fa-shopping-cart"></i>
@@ -53,16 +53,16 @@
                         <a class="nav-link" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quienes somos</a>
+                        <a class="nav-link" href="/quienes-somos">Quienes somos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">CEO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nuestros Trabajos</a>
+                        <a class="nav-link" href="/nuestros-trabajos">Nuestros Trabajos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="/contacto">Contacto</a>
                     </li>
                 </ul>
             </div>

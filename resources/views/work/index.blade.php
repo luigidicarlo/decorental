@@ -6,35 +6,34 @@
 <div class="col-xs-12 col-md-10 mx-auto">
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center">Productos</h1>
+            <h1 class="text-center">Trabajos realizados</h1>
         </div>
         <div class="card-body">
 
             <div class="text-center mb-4">
-                <a href="/product/create" class="btn btn-primary text-white">
-                    Nuevo Producto
+                <a href="/work/create" class="btn btn-primary text-white">
+                    Nuevo Trabajo
                 </a>
             </div>
 
-            @if ($products->count())
+            @if ($works->count())
 
             <ul class="list-group">
-                @foreach ($products as $product)
+                @foreach ($works as $work)
                 <li class="list-group-item">
                     <div class="clearfix">
                         <div class="float-left mr-auto">
-                            <a href="/product/{{ $product->id }}">
-                                {{ $product->name }}
+                        	<img src="{{ $work->url }}" width="80px">
+                            <a href="/work/{{ $work->id }}">
+                                Ver imagen
                             </a>
-                            <span>
-                                | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
-                            </span>
+
                         </div>
                         <div class="float-right ml-auto">
-                            <a href="/product/{{ $product->id }}/edit" class="btn btn-primary text-white mx-4">
+                            <a href="/work/{{ $work->id }}/edit" class="btn btn-primary text-white mx-4">
                                 Editar
                             </a>
-                            <form class="d-inline" action="/product/{{ $product->id }}" method="post">
+                            <form class="d-inline" action="/work/{{ $work->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger text-white">

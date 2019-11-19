@@ -47,7 +47,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $this->validation($request);
-        $validated['user_id'] = auth()->id();
 
         Product::create($validated);
 
@@ -64,6 +63,13 @@ class ProductController extends Controller
     {
         return view('product.show', compact('product'));
     }
+
+    public function showProduct(Request $request) {
+        $product = Product::findOrFail($request->product);
+        
+        return view('product.show', compact('product'));
+    }
+    /*    
 
     /**
      * Show the form for editing the specified resource.
