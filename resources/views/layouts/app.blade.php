@@ -36,13 +36,17 @@
             </form>
             <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt=""></a>
             <ul class="navbar-nav flex-row nav-side-right text-center mx">
-                <li class="nav-item icon">
-                    <i class="fa fa-user"></i>  
-                    <a style="text-decoration: none; color: #000" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <li class="nav-item icon"> 
+                    <a style="text-decoration: none; color: #000" href="{{ route('login') }}">
+                        <i class="fa fa-user"></i>&nbsp;
+                        {{ __('Login') }}
+                    </a>
                 </li>
                 <li class="nav-item icon">
-                    <i class="fa fa-shopping-cart"></i>
-                    Carrito             
+                    <a style="text-decoration: none; color: #000" href="/carrito">
+                        <i class="fa fa-shopping-cart"></i>&nbsp;
+                        {{ __('Carrito') }}
+                    </a>
                 </li>
             </ul>               
         </nav>
@@ -50,7 +54,7 @@
             <div class="navbar-collapse collapse pt-2 pt-md-0" id="navbar2">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/quienes-somos">Quienes somos</a>
