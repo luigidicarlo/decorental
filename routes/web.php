@@ -31,6 +31,10 @@ Route::get('/nuestros-trabajos', function () {
     return view('our-work', ['works' => $works]);
 });
 
+Route::get('/carrito', function () {	
+    return view('cart');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

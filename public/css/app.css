@@ -133,6 +133,15 @@ img.zoom {
   display:none;  
 }
 
+/* CARRO DE COMPRAS */
+.bg-header {
+    background-color: #fee086 !important;
+}
+
+.bg-button {
+    background-color: #c4366d !important;
+}
+
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
     .fixed-top-sm {
