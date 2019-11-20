@@ -2,24 +2,122 @@
 
 @section('content')
 
-<div id="carouselExampleSlidesOnly" class="carousel carousel-fade slide" data-ride="carousel" data-pause="false">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100 img-fluid vh-100" src="https://www.65ymas.com/uploads/s1/18/90/13/devoluciones-de-compras-en-internet-que-se-les-exige-a-los-comercios-online.jpeg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100 img-fluid vh-100" src="https://eventosestrella.com/wp-content/uploads/2017/05/img_2710-eventos-estrella-bodas-organizador-de-bodas.jpg" alt="Second slide">
+<script>
+    var swiper = app.swiper.get('.swiper-container');
+    swiper.slideNext();
+</script>
+
+
+    <div id="carouselExampleSlidesOnly" class="carousel carousel-fade slide" data-ride="carousel" data-pause="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/28.jpg') }}" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/ll8.jpg') }}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/52.jpg') }}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/ph.jpg') }}" alt="Second slide">
+            </div>
         </div>
     </div>
-</div>
+
+
 
 <section class="container pt-3">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="font-weight-light">AAAAAAAAAAAAAAAAAa</h1>
+    <div class="row mb-5">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="hovereffect" style="height:430px; width:340px;">
+                <img class="img-responsive" src=" {{ asset('img/decora.jpg') }}" alt="">
+                <div class="overlay">
+                    <h2>Decoraciones</h2>
+                    <center>
+                    <a class="info" href="#">Más Información</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="hovereffect" style="height:430px; width:340px;">
+                <img class="img-responsive" src=" {{ asset('img/mobiliario.jpg') }}" alt="">
+                <div class="overlay">
+                    <h2>Mobiliario</h2>
+                    <center>
+                    <a class="info" href="#">Más Información</a>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="hovereffect"style="height:430px; width:340px;">
+                <img class="img-responsive" src="{{ asset('img/ventas.jpg') }}" alt="">
+                <div class="overlay">
+                    <h2>Ventas</h2>
+                    <center> <a class="info" href="#">Más Información</a></center>
+
+                </div>
+            </div>
         </div>
     </div>
 </section>
+<!-- ESTE CÓDIGO ES SOLO UNA PRUEBA -->
+@if ($products->count())
+
+<ul class="list-group">
+    @foreach ($products as $product)
+    <li class="list-group-item">
+        <div class="clearfix">
+            <div class="float-left mr-auto">
+                <a href="/products/{{ $product->id }}">
+                    {{ $product->name }}
+                </a>
+                <span>
+                    | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
+                </span>
+            </div>
+        </div>
+    </li>
+    @endforeach
+</ul>
+
+@else
+
+
+
+@endif
+<!-- FIN DE CÓDIGO PRUEBA -->
+
+
+<div class="py-4">
+    <div class="container-fluid">
+        <div class="row mw-100">
+            <div class="col-md-3"></div>
+            <div class="col-xs-12 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <center>
+                        <img class="img-fluid" src="{{ asset('img/logo.png') }}" style="height:230px; width:340px" alt="Carousel 2">
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <h2><b>
+                            <p class="lead text-center">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum nostrum exercitationem eaque delectus
+                                consequatur voluptatem voluptate reprehenderit debitis porro nobis. Cumque voluptatum culpa nulla
+                                laborum mollitia maxime ipsam iure totam.
+                            </p>
+                        </b>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="carousel slide" data-ride="carousel" id="postsCarousel">
     <div class="container pt-0 mt-2 carousel-inner">
         <div class="row">
@@ -33,21 +131,21 @@
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="http://i.imgur.com/EW5FgJM.png" alt="Carousel 1">
+                            <img class="img-fluid" src="{{ asset('img/2.jpg') }}" alt="Carousel 1">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="http://i.imgur.com/Hw7sWGU.png" alt="Carousel 2">
+                            <img class="img-fluid" src="{{ asset('img/6.jpg') }}" alt="Carousel 2">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="http://i.imgur.com/g27lAMl.png" alt="Carousel 3">
+                            <img class="img-fluid" src="{{ asset('img/9.jpg') }}" alt="Carousel 3">
                         </div>
                     </div>
                 </div>
@@ -58,79 +156,33 @@
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="//visualhunt.com/photos/l/1/office-student-work-study.jpg" alt="Carousel 4">
+                            <img class="img-fluid" src="{{ asset('img/8.jpg') }}" alt="Carousel 4">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="//visualhunt.com/photos/l/1/working-woman-technology-computer.jpg" alt="Carousel 5">
+                            <img class="img-fluid" src="{{ asset('img/7.jpg') }}" alt="Carousel 5">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="//visualhunt.com/photos/l/1/people-office-team-collaboration.jpg" alt="Carousel 6">
+                            <img class="img-fluid" src="{{ asset('img/3.jpg') }}" alt="Carousel 6">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
 </section>
-<br><br><br>
-          <!-- ESTE CÓDIGO ES SOLO UNA PRUEBA -->
-            @if ($products->count())
-
-            <ul class="list-group">
-                @foreach ($products as $product)
-                <li class="list-group-item">
-                    <div class="clearfix">
-                        <div class="float-left mr-auto">
-                            <a href="/products/{{ $product->id }}">
-                                {{ $product->name }}
-                            </a>
-                            <span>
-                                | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
-                            </span>
-                        </div>
-                    </div>                    
-                </li>
-                @endforeach
-            </ul>
-
-            @else
-
-            <h3>No hay resultados para mostrar</h3>
-
-            @endif
-          <!-- FIN DE CÓDIGO PRUEBA -->
-
-
-<div class="py-4">
-    <div class="container-fluid">
-        <div class="row mw-100">
-            <div class="col-md-3"></div>
-            <div class="col-xs-12 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h1 class="text-center">
-                            Decorental
-                        </h1>
-                    </div>
-                    <div class="card-body">
-                        <p class="lead text-center">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum nostrum exercitationem eaque delectus
-                            consequatur voluptatem voluptate reprehenderit debitis porro nobis. Cumque voluptatum culpa nulla
-                            laborum mollitia maxime ipsam iure totam.
-                        </p>
-                    </div>
-                </div>
-            </div>            
-        </div>                
-    </div>
-</div>
-
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 @endsection
