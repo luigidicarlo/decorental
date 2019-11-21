@@ -15,6 +15,7 @@ use App\Category;
 use App\Product;
 use App\User;
 use App\Work;
+use Illuminate\Http\Request;
 
 # Debug
 Route::get('/debug', function() {
@@ -67,6 +68,31 @@ Route::get('/quienes-somos', function () {
 Route::get('/nuestros-trabajos', function () {
 	$works = Work::all();
     return view('our-work', ['works' => $works]);
+});
+
+Route::get('/shopping-cart', function() {
+    return view('cart');
+});
+
+Route::post('/shopping-cart-products', function(Request $request) {
+    $products = $request->products;
+    $result = array();
+
+    foreach ($products as $product) {
+        $prod = Product::find($product['id']);
+        $temp = [
+            'id' => $product['id'],
+            'name' => $prod->name,
+            'image' => $prod->image,
+            'category' => isset($prod->category) ? $prod->category->name : null,
+            'price' => $prod->price,
+            'discount' => $prod->discount,
+            'quantity' => $product['quantity'],
+        ];
+        array_push($result, $temp);
+    }
+
+    return response()->json($result, 200);
 });
 
 Auth::routes();

@@ -10,9 +10,7 @@
 
         <!--Grid column-->
         <div class="col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
-
+          <img src="{{ $product->image }}" class="img-fluid" alt="">
         </div>
         <!--Grid column-->
 
@@ -32,19 +30,17 @@
               <span class="mr-1">
                 <del>{{ $product->price }}{{ env('CUR_SYMBOL', '$') }}</del>
               </span>
-              <span>{{ $product->price - ($product->price * $product->discount) }}{{ env('CUR_SYMBOL', '$') }} </span>
+              <span>{{ $product->price - ($product->price * ($product->discount / 100)) }}{{ env('CUR_SYMBOL', '$') }} </span>
             </p>
 
             <p class="lead font-weight-bold">Descripción</p>
 
             <p>{{ $product->description }}</p>
 
-            <form method="post" action="/shopping-cart" class="d-flex justify-content-left">
-              @csrf
-              {{ $errors->any() ? $errors->has('quantity')->first() : '' }}
+            <form id="add-to-cart" class="d-flex justify-content-left">
               <input type="hidden" name="product_id" value="{{ $product->id }}">
               <input type="number" name="quantity" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p ml-2" type="submit">Agregar al carrito
+              <button class="btn btn-primary btn-md my-0 p ml-2" type="button" id="add-to-cart-toggler">Agregar al carrito
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
             </form>

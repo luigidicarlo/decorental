@@ -13,19 +13,19 @@
     </div>
 </div>
 
-<section class="container pt-3">
+{{-- <section class="container pt-3">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="font-weight-light">AAAAAAAAAAAAAAAAAa</h1>
         </div>
     </div>
-</section>
+</section> --}}
 <section class="carousel slide" data-ride="carousel" id="postsCarousel">
     <div class="container pt-0 mt-2 carousel-inner">
         <div class="row">
             <div class="col-12 py-1 text-md-right lead">
-                <a class="btn btn-outline-secondary prev" href="" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>
-                <a class="btn btn-outline-secondary next" href="" title="more"><i class="fa fa-lg fa-chevron-right"></i></a>
+                <button onclick="previous()" class="btn btn-outline-secondary prev" title="go back"><i class="fa fa-lg fa-chevron-left"></i></button>
+                <button onclick="next()" class="btn btn-outline-secondary next" title="more"><i class="fa fa-lg fa-chevron-right"></i></button>
             </div>
         </div>
         <div class="carousel-item active">
