@@ -51,8 +51,6 @@ Route::get('/debug', function() {
     ], 201);
 });
 
-Route::get('/carrito', 'ShoppingCartController@show');
-
 Route::get('/', function () {
 	$products = Product::all();
     return view('welcome', ['products' => $products]);

@@ -39,13 +39,14 @@
 
             <p>{{ $product->description }}</p>
 
-            <form class="d-flex justify-content-left">
-              <!-- Default input -->
-              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Agregar al carrito
+            <form method="post" action="/shopping-cart" class="d-flex justify-content-left">
+              @csrf
+              {{ $errors->any() ? $errors->has('quantity')->first() : '' }}
+              <input type="hidden" name="product_id" value="{{ $product->id }}">
+              <input type="number" name="quantity" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p ml-2" type="submit">Agregar al carrito
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
-
             </form>
 
           </div>

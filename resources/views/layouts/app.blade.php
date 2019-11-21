@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item icon">
-                    <a style="text-decoration: none; color: #000" href="/carrito">
+                    <a style="text-decoration: none; color: #000" href="/shopping-cart">
                         <i class="fa fa-shopping-cart"></i>&nbsp;
                         {{ __('Carrito') }}
                     </a>
