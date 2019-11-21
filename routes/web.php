@@ -13,16 +13,16 @@
 use App\Product;
 use App\Work;
 
-Route::get('/', function () {
+Route::get('/inicio', function () {
 	$products = Product::all();
     return view('welcome', ['products' => $products]);
 });
 
-Route::get('/contacto', function () {	
+Route::get('/contacto', function () {
     return view('contact');
 });
 
-Route::get('/quienes-somos', function () {	
+Route::get('/quienes-somos', function () {
     return view('about-us');
 });
 

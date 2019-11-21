@@ -25,12 +25,12 @@
         </div>
     </div>
 
-
-
+ <br>
+<br>
 <section class="container pt-3">
     <div class="row mb-5">
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="hovereffect" style="height:430px; width:340px;">
+            <div class="hovereffec" style="height:430px; width:340px;">
                 <img class="img-responsive" src=" {{ asset('img/decora.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Decoraciones</h2>
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="hovereffect" style="height:430px; width:340px;">
+            <div class="hovereffec" style="height:430px; width:340px;">
                 <img class="img-responsive" src=" {{ asset('img/mobiliario.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Mobiliario</h2>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="hovereffect"style="height:430px; width:340px;">
+            <div class="hovereffec"style="height:430px; width:340px;">
                 <img class="img-responsive" src="{{ asset('img/ventas.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Ventas</h2>
@@ -64,6 +64,23 @@
         </div>
     </div>
 </section>
+<div class="jumbotron parent text-center" style="color: rgb(0, 0, 0);">
+    <div class="background"></div>
+    <div class="content my-auto">
+        <div class="content-no-flex">
+           <h2>
+           <h1 class="lead hero-description text-white">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum nostrum exercitationem eaque delectus
+                                consequatur voluptatem voluptate reprehenderit debitis porro nobis. Cumque voluptatum culpa nulla
+                                laborum mollitia maxime ipsam iure totam.
+</h2>
+           </h1>
+
+
+
+        </div>
+    </div>
+</div>
 <!-- ESTE CÓDIGO ES SOLO UNA PRUEBA -->
 @if ($products->count())
 
@@ -90,9 +107,7 @@
 
 @endif
 <!-- FIN DE CÓDIGO PRUEBA -->
-
-
-<div class="py-4">
+<!-- <div class="py-4">
     <div class="container-fluid">
         <div class="row mw-100">
             <div class="col-md-3"></div>
@@ -117,7 +132,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <section class="carousel slide" data-ride="carousel" id="postsCarousel">
     <div class="container pt-0 mt-2 carousel-inner">
         <div class="row">

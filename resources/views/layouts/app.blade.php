@@ -25,7 +25,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md fixed-top-sm justify-content-between flex-nowrap navbar-light">     
+        <nav class="navbar navbar-expand-md fixed-top-sm justify-content-between flex-nowrap navbar-light">
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,20 +37,20 @@
             <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt=""></a>
             <ul class="navbar-nav flex-row nav-side-right text-center mx">
                 <li class="nav-item icon">
-                    <i class="fa fa-user"></i>  
+                    <i class="fa fa-user"></i>
                     <a style="text-decoration: none; color: #000" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 <li class="nav-item icon">
                     <i class="fa fa-shopping-cart"></i>
-                    Carrito             
+                    Carrito
                 </li>
-            </ul>               
+            </ul>
         </nav>
         <nav class="navbar navbar-expand-md">
             <div class="navbar-collapse collapse pt-2 pt-md-0" id="navbar2">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="/inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/quienes-somos">Quienes somos</a>
@@ -68,10 +68,10 @@
             </div>
         </nav>
 
-        
+
         <div class="mw-100">
             @yield('content')
-        </div>            
+        </div>
 
         {{-- SCRIPTS --}}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
