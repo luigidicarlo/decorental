@@ -10,9 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Product;
+use App\Work;
 
 Route::get('/', function () {
-    return view('welcome');
+	$products = Product::all();
+    return view('welcome', ['products' => $products]);
+});
+
+Route::get('/contacto', function () {	
+    return view('contact');
+});
+
+Route::get('/quienes-somos', function () {	
+    return view('about-us');
+});
+
+Route::get('/nuestros-trabajos', function () {
+	$works = Work::all();
+    return view('our-work', ['works' => $works]);
+});
+
+Route::get('/carrito', function () {	
+    return view('cart');
 });
 
 Auth::routes();
@@ -21,3 +41,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('product', 'ProductController')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
+Route::resource('work', 'WorkController')->middleware('auth');
+
+
+Route::get('/products/{product}', 'ProductController@showProduct');
