@@ -10,7 +10,7 @@ class Product extends Model
 {
     protected $fillable = [
         'user_id', 'name', 'description', 
-        'price', 'discount', 'image'
+        'price', 'discount', 'image', 'category_id'
     ];
 
     public function owner() {
@@ -18,6 +18,6 @@ class Product extends Model
     }
 
     public function category() {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }

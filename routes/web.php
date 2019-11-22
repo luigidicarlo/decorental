@@ -10,8 +10,47 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Category;
 use App\Product;
+use App\User;
 use App\Work;
+use Illuminate\Http\Request;
+
+# Debug
+Route::get('/debug', function() {
+    $products = factory(Product::class, 20)->make();
+    $users = factory(User::class, 20)->make();
+    $categories = factory(Category::class, 3)->make();
+    $works = factory(Work::class, 10)->make();
+
+    foreach ($products as $product) {
+        Product::create($product->toArray());
+    }
+
+    foreach ($users as $user) {
+        User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => $user->password,
+        ]);
+    }
+
+    foreach ($categories as $category) {
+        Category::create($category->toArray());
+    }
+
+    foreach ($works as $work) {
+        Work::create($work->toArray());
+    }
+
+    return response()->json([
+        'products' => $products->toArray(),
+        'users' => $users->toArray(),
+        'categories' => $categories->toArray(),
+        'works' => $categories->toArray(),
+    ], 201);
+});
 
 Route::get('/', function () {
 	$products = Product::all();
@@ -39,9 +78,32 @@ Route::get('/nuestros-trabajos', function () {
     return view('our-work', ['works' => $works]);
 });
 
-Route::get('/carrito', function () {	
+Route::get('/shopping-cart', function() {
     return view('cart');
 });
+
+Route::post('/shopping-cart-products', function(Request $request) {
+    $products = $request->products;
+    $result = array();
+
+    foreach ($products as $product) {
+        $prod = Product::find($product['id']);
+        $temp = [
+            'id' => $product['id'],
+            'name' => $prod->name,
+            'image' => $prod->image,
+            'category' => isset($prod->category) ? $prod->category->name : null,
+            'price' => $prod->price,
+            'discount' => $prod->discount,
+            'quantity' => $product['quantity'],
+        ];
+        array_push($result, $temp);
+    }
+
+    return response()->json($result, 200);
+});
+
+// Route::get('/send-mail', );
 
 Auth::routes();
 

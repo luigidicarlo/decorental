@@ -48,134 +48,19 @@
   </div>
 </div>
 
-<!--
-    <div id="carouselExampleSlidesOnly" class="carousel carousel-fade slide" data-ride="carousel" data-pause="false">
-        <div class="carousel-inner">
-            <div class="carousel-item active" >
-                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/28.jpg') }}" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/ll8.jpg') }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/52.jpg') }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/ph.jpg') }}" alt="Second slide">
-            </div>
-        </div>
-    </div>-->
-
-<br><br>
-<div class="row">
-    <h1 class="section-title text-center mx-auto">CATEGORÍAS</h1>
-</div>
-<section class="container pt-3">
-    <div class="row mb-5">
-        <div class="col-md-4 mb-4">
-            <div class="hovereffec">
-                <img class="img-fluid mx-auto" src=" {{ asset('img/decora.jpg') }}" alt="">
-                <div class="overlay">
-                    <h2>Decoraciones</h2>
-                    <center>
-                    <a class="info" href="#">Más Información</a>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="hovereffec">
-                <img class="img-fluid mx-auto" src=" {{ asset('img/mobiliario.jpg') }}" alt="">
-                <div class="overlay">
-                    <h2>Mobiliario</h2>
-                    <center>
-                    <a class="info" href="#">Más Información</a>
-                    </center>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="hovereffec">
-                <img class="img-fluid mx-auto" src="{{ asset('img/ventas.jpg') }}" alt="">
-                <div class="overlay">
-                    <h2>Ventas</h2>
-                    <center> <a class="info" href="#">Más Información</a></center>
-
-                </div>
-            </div>
+{{-- <section class="container pt-3">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="font-weight-light">AAAAAAAAAAAAAAAAAa</h1>
         </div>
     </div>
-</section>
-
-
-<div class="jumbotron parent text-center" style="color: rgb(0, 0, 0);">
-    <div class="background"></div>
-    <div class="content my-auto">
-        <div class="content-no-flex">
-            <h1 class="text-white title-header">DECORENTAL</h1>
-            <p class="lead hero-description text-white">
-                LOREM IPSUM DOLOR SIT AMET CONSECTETUR
-            </p>
-            <p class="lead text-white">
-                <a href="#contact" class="btn btn-primary btn-lg">
-                    Empieza ya
-                </a>
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- ESTE CÓDIGO ES SOLO UNA PRUEBA -->
-           <h2>
-           <h1 class="lead hero-description text-white">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum nostrum exercitationem eaque delectus
-                                consequatur voluptatem voluptate reprehenderit debitis porro nobis. Cumque voluptatum culpa nulla
-                                laborum mollitia maxime ipsam iure totam.
-</h2>
-           </h1>
-
-
-
-        </div>
-    </div>
-</div>
-<!--
-@if ($products->count())
-
-<ul class="list-group">
-    @foreach ($products as $product)
-    <li class="list-group-item">
-        <div class="clearfix">
-            <div class="float-left mr-auto">
-                <a href="/products/{{ $product->id }}">
-                    {{ $product->name }}
-                </a>
-                <span>
-                    | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
-                </span>
-            </div>
-        </div>
-    </li>
-    @endforeach
-</ul>
-
-@else
-
-
-
-@endif
--->
-<br><br>
-<div class="row">
-    <h1 class="section-title text-center mx-auto">TRABAJOS RECIENTES</h1>
-</div>
+</section> --}}
 <section class="carousel slide" data-ride="carousel" id="postsCarousel">
     <div class="container pt-0 mt-2 carousel-inner">
         <div class="row">
             <div class="col-12 py-1 text-md-right lead">
-                <a class="btn btn-outline-secondary prev" href="" title="go back"><i class="fa fa-lg fa-chevron-left"></i></a>
-                <a class="btn btn-outline-secondary next" href="" title="more"><i class="fa fa-lg fa-chevron-right"></i></a>
+                <button onclick="previous()" class="btn btn-outline-secondary prev" title="go back"><i class="fa fa-lg fa-chevron-left"></i></button>
+                <button onclick="next()" class="btn btn-outline-secondary next" title="more"><i class="fa fa-lg fa-chevron-right"></i></button>
             </div>
         </div>
         <div class="carousel-item active">
