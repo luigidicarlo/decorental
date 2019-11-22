@@ -2,14 +2,17 @@
 
 @section('content')
 
+<br>
 <div class="container">
     <div class="row mb-4">
         <div class="col-lg-5 mx-auto">
-            <h2 class="text-center display-4 font-weight-light">Nuestro equipo</h2>
+            <div class="row">
+                <h1 class="section-title text-center mx-auto">NUESTRO EQUIPO</h1>
+            </div>
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-4" src="{{ asset('img/ventas.jpg') }}" alt="">
+        <div class="col-md-4" src="{{ asset('img/ventas.jpg') }}" alt="">
             <div class="hovereffect" style="background: #e3b4bc;">
                 <center>
                     <img src="https://res.cloudinary.com/mhmd/image/upload/v1556834132/avatar-4_ozhrib.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
@@ -39,7 +42,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-md-4">
         <div class="hovereffect" style="background: #e3b4bc;">
                 <center>
                     <img src="https://res.cloudinary.com/mhmd/image/upload/v1556834132/avatar-4_ozhrib.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
@@ -68,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4" style="ba">
+        <div class="col-md-4" style="ba">
         <div class="hovereffect" style="background: #e3b4bc;">
                 <center>
                     <img src="https://res.cloudinary.com/mhmd/image/upload/v1556834132/avatar-4_ozhrib.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">

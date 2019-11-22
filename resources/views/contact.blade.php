@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<br><br>
 <div class="align-items-center">
     <div class="container">
         <h2 class="text-center">Formulario de Contacto</h2>

@@ -36,27 +36,24 @@
             </form>
             <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt=""></a>
             <ul class="navbar-nav flex-row nav-side-right text-center mx">
-                <li class="nav-item icon">
-                    <i class="fa fa-user"></i>
-                    <a style="text-decoration: none; color: #000" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                <li class="nav-item icon">
-                    <i class="fa fa-shopping-cart"></i>
-                    Carrito
-                </li>
+                <a href="/carrito">
+                <li class="nav-item icon d-flex">
+                    <img src="{{asset('img/decocarri.png')}}" width="50px">
+                    <p style="position: absolute; top: 75px; color: #000;">Carrito</p>
+                </li></a>
             </ul>
         </nav>
         <nav class="navbar navbar-expand-md">
             <div class="navbar-collapse collapse pt-2 pt-md-0" id="navbar2">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav nav-link-container mx-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/inicio">Inicio</a>
+                        <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/quienes-somos">Quienes somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CEO</a>
+                        <a class="nav-link" href="/ceo">CEO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/nuestros-trabajos">Nuestros Trabajos</a>
@@ -72,6 +69,48 @@
         <div class="mw-100">
             @yield('content')
         </div>
+
+        <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center">
+                    <div class="col-4 mx-auto">
+                        <h5>Accesos rápidos</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="/quienes-somos"><i class="fa fa-angle-double-right"></i>Quienes somos</a></li>
+                            <li><a href="/ceo"><i class="fa fa-angle-double-right"></i>CEO</a></li>
+                            <li><a href="nuestros-trabajos"><i class="fa fa-angle-double-right"></i>Nuestros trabajos</a></li>
+                            <li><a href="/contacto"><i class="fa fa-angle-double-right"></i>Contáctanos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-4 mx-auto">
+                        <h5>Categorías</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Decoraciones</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Mobiliario</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Ventas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>  
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p>© 2019, Decorental. Todos los derechos reservados.</p>
+                    </div>
+                    <hr>
+                </div>  
+            </div>
+        </section>
 
         {{-- SCRIPTS --}}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

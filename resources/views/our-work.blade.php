@@ -4,7 +4,10 @@
 <div class="container page-top">
 
 
-
+        <div class="row">
+            <h1 class="section-title text-center mx-auto">Nuestros trabajos</h1>
+        </div>
+        <br>
         <div class="row">
 
             @if ($works->count())
@@ -37,9 +40,12 @@
 
             @endif                    
        </div>       
-     
+        <div class="float-right">
+            {{ $works->links() }}
+        </div>
       
 
-    </div>
+</div>
+<br><br><br><br>
 
 @endsection

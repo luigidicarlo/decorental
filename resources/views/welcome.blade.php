@@ -7,7 +7,48 @@
     swiper.slideNext();
 </script>
 
+<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators my-4">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ asset('img/28.jpg') }}" class="d-block w-100 img-fluid vh-100" alt="...">
+        <div class="carousel-caption d-none d-sm-block">
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ asset('img/ll8.jpg') }}" class="d-block w-100 img-fluid vh-100" alt="...">
+        <div class="carousel-caption d-none d-sm-block">
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ asset('img/52.jpg') }}" class="d-block w-100 img-fluid vh-100" alt="...">
+        <div class="carousel-caption d-sm-block">
+          <h5>Third slide label</h5>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 
+<!--
     <div id="carouselExampleSlidesOnly" class="carousel carousel-fade slide" data-ride="carousel" data-pause="false">
         <div class="carousel-inner">
             <div class="carousel-item active" >
@@ -23,15 +64,17 @@
                 <img class="d-block w-100 img-fluid vh-100" src=" {{ asset('img/ph.jpg') }}" alt="Second slide">
             </div>
         </div>
-    </div>
+    </div>-->
 
- <br>
-<br>
+<br><br>
+<div class="row">
+    <h1 class="section-title text-center mx-auto">CATEGORÍAS</h1>
+</div>
 <section class="container pt-3">
     <div class="row mb-5">
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="hovereffec" style="height:430px; width:340px;">
-                <img class="img-responsive" src=" {{ asset('img/decora.jpg') }}" alt="">
+        <div class="col-md-4 mb-4">
+            <div class="hovereffec">
+                <img class="img-fluid mx-auto" src=" {{ asset('img/decora.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Decoraciones</h2>
                     <center>
@@ -40,9 +83,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="hovereffec" style="height:430px; width:340px;">
-                <img class="img-responsive" src=" {{ asset('img/mobiliario.jpg') }}" alt="">
+        <div class="col-md-4 mb-4">
+            <div class="hovereffec">
+                <img class="img-fluid mx-auto" src=" {{ asset('img/mobiliario.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Mobiliario</h2>
                     <center>
@@ -52,9 +95,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-            <div class="hovereffec"style="height:430px; width:340px;">
-                <img class="img-responsive" src="{{ asset('img/ventas.jpg') }}" alt="">
+        <div class="col-md-4 mb-4">
+            <div class="hovereffec">
+                <img class="img-fluid mx-auto" src="{{ asset('img/ventas.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Ventas</h2>
                     <center> <a class="info" href="#">Más Información</a></center>
@@ -81,7 +124,7 @@
         </div>
     </div>
 </div>
-<!-- ESTE CÓDIGO ES SOLO UNA PRUEBA -->
+<!--
 @if ($products->count())
 
 <ul class="list-group">
@@ -106,33 +149,11 @@
 
 
 @endif
-<!-- FIN DE CÓDIGO PRUEBA -->
-<!-- <div class="py-4">
-    <div class="container-fluid">
-        <div class="row mw-100">
-            <div class="col-md-3"></div>
-            <div class="col-xs-12 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <center>
-                        <img class="img-fluid" src="{{ asset('img/logo.png') }}" style="height:230px; width:340px" alt="Carousel 2">
-                        </center>
-                    </div>
-                    <div class="card-body">
-                        <h2><b>
-                            <p class="lead text-center">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum nostrum exercitationem eaque delectus
-                                consequatur voluptatem voluptate reprehenderit debitis porro nobis. Cumque voluptatum culpa nulla
-                                laborum mollitia maxime ipsam iure totam.
-                            </p>
-                        </b>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+-->
+<br><br>
+<div class="row">
+    <h1 class="section-title text-center mx-auto">TRABAJOS RECIENTES</h1>
+</div>
 <section class="carousel slide" data-ride="carousel" id="postsCarousel">
     <div class="container pt-0 mt-2 carousel-inner">
         <div class="row">

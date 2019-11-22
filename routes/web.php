@@ -13,7 +13,7 @@
 use App\Product;
 use App\Work;
 
-Route::get('/inicio', function () {
+Route::get('/', function () {
 	$products = Product::all();
     return view('welcome', ['products' => $products]);
 });
@@ -26,8 +26,16 @@ Route::get('/quienes-somos', function () {
     return view('about-us');
 });
 
+Route::get('/carrito', function () {
+    return view('cart');
+});
+
+Route::get('/ceo', function () {
+    return view('ceo');
+});
+
 Route::get('/nuestros-trabajos', function () {
-	$works = Work::all();
+	$works = Work::paginate(3);
     return view('our-work', ['works' => $works]);
 });
 
