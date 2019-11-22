@@ -41,12 +41,24 @@
                 <strong>{{ (product.price - product.price * (product.discount / 100)).toFixed(2) }}</strong>
               </td>
               <td class="border-0 align-middle">
-                <strong>{{ product.quantity }}</strong>
+                <div class="row mw-100">
+                  <div class="col-8">
+                    <input
+                      type="number"
+                      id="quantity"
+                      class="form-control p-2"
+                      :value="product.quantity"
+                    />
+                  </div>
+                  <div class="col-4">
+                    <button v-on:click="updateCart(product)" class="text-dark">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </div>
+                </div>
               </td>
               <td class="border-0 align-middle">
-                <strong>
-                  {{ ((product.price - product.price * (product.discount / 100)) * product.quantity).toFixed(2) }}
-                </strong>
+                <strong>{{ ((product.price - product.price * (product.discount / 100)) * product.quantity).toFixed(2) }}</strong>
               </td>
               <td class="border-0 align-middle">
                 <button v-on:click="deleteCart(product)" class="text-dark">
@@ -109,7 +121,10 @@ export default {
     getTotal() {
       let total = 0;
       this.products.forEach(elem => {
-        total += +((elem.price - elem.price * (elem.discount / 100)) * elem.quantity).toFixed(2);
+        total += +(
+          (elem.price - elem.price * (elem.discount / 100)) *
+          elem.quantity
+        ).toFixed(2);
       });
       this.total = total.toFixed(2);
     },
@@ -125,21 +140,25 @@ export default {
       var aux = cart.products.find(function(elem) {
         return elem.id === product.id;
       });
+      var newQuantity = document.querySelectorAll('#quantity')[0].value;
+      console.log(newQuantity);
       var index = cart.products.indexOf(aux);
       if (index !== -1) {
-        cart.products[index] = product;
+        cart.products.splice(index, 1);
+        cart.products.push({id: product.id, quantity: +newQuantity});
       } else {
         console.error("No se pudo actualizar el producto.");
       }
+      this.getTotal();
       sessionStorage.setItem("cart", JSON.stringify(cart));
     },
     deleteCart(product) {
-      const prod = this.products.find((elem) => elem.id === product.id);
+      const prod = this.products.find(elem => elem.id === product.id);
       const index = this.products.indexOf(prod);
       this.products.splice(index, 1);
       this.cart.products = this.products;
       this.getTotal();
-      sessionStorage.setItem('cart', JSON.stringify(this.cart));
+      sessionStorage.setItem("cart", JSON.stringify(this.cart));
     }
   }
 };

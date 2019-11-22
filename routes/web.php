@@ -95,6 +95,8 @@ Route::post('/shopping-cart-products', function(Request $request) {
     return response()->json($result, 200);
 });
 
+// Route::get('/send-mail', );
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

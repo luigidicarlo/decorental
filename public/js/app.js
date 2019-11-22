@@ -1923,6 +1923,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1965,14 +1977,21 @@ __webpack_require__.r(__webpack_exports__);
       var aux = cart.products.find(function (elem) {
         return elem.id === product.id;
       });
+      var newQuantity = document.querySelectorAll('#quantity')[0].value;
+      console.log(newQuantity);
       var index = cart.products.indexOf(aux);
 
       if (index !== -1) {
-        cart.products[index] = product;
+        cart.products.splice(index, 1);
+        cart.products.push({
+          id: product.id,
+          quantity: +newQuantity
+        });
       } else {
         console.error("No se pudo actualizar el producto.");
       }
 
+      this.getTotal();
       sessionStorage.setItem("cart", JSON.stringify(cart));
     },
     deleteCart: function deleteCart(product) {
@@ -1983,7 +2002,7 @@ __webpack_require__.r(__webpack_exports__);
       this.products.splice(index, 1);
       this.cart.products = this.products;
       this.getTotal();
-      sessionStorage.setItem('cart', JSON.stringify(this.cart));
+      sessionStorage.setItem("cart", JSON.stringify(this.cart));
     }
   }
 });
@@ -37361,21 +37380,42 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "border-0 align-middle" }, [
-                      _c("strong", [_vm._v(_vm._s(product.quantity))])
+                      _c("div", { staticClass: "row mw-100" }, [
+                        _c("div", { staticClass: "col-8" }, [
+                          _c("input", {
+                            staticClass: "form-control p-2",
+                            attrs: { type: "number", id: "quantity" },
+                            domProps: { value: product.quantity }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-4" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "text-dark",
+                              on: {
+                                click: function($event) {
+                                  return _vm.updateCart(product)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-edit" })]
+                          )
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "border-0 align-middle" }, [
                       _c("strong", [
                         _vm._v(
-                          "\n                " +
-                            _vm._s(
-                              (
-                                (product.price -
-                                  product.price * (product.discount / 100)) *
-                                product.quantity
-                              ).toFixed(2)
-                            ) +
-                            "\n              "
+                          _vm._s(
+                            (
+                              (product.price -
+                                product.price * (product.discount / 100)) *
+                              product.quantity
+                            ).toFixed(2)
+                          )
                         )
                       ])
                     ]),
