@@ -37037,28 +37037,6 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
     "use strict";
 
-<<<<<<< HEAD
-    // manual carousel controls
-    $('.next').click(function(){ $('.carousel').carousel('next');return false; });
-    $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
-
-})(jQuery);
-
-//Parallax
-objectFitImages();
-
-/* init Jarallax */
-jarallax(document.querySelectorAll('.jarallax'));
-
-jarallax(document.querySelectorAll('.jarallax-keep-img'), {
-    keepImg: true,
-});
-
-$(document).ready(funtion(){
-    $('.parallax').parallax();
-});
-
-=======
     if (global.setImmediate) {
         return;
     }
@@ -49923,4 +49901,3 @@ module.exports = __webpack_require__(/*! C:\lehd\docs\dev\php\laravel\decorental
 /***/ })
 
 /******/ });
->>>>>>> shopping-cart
