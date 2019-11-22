@@ -3,148 +3,81 @@
 @section('content')
 
 <main class="mt-5 pt-4">
-    <div class="container dark-grey-text mt-5">
+  <div class="container dark-grey-text mt-5">
+    <div class="row wow fadeIn">
+      <div class="col-md-6 mb-4">
+        <img src="{{ $product->image }}" class="img-fluid" alt="">
+      </div>
 
-      <!--Grid row-->
-      <div class="row wow fadeIn">
+      <div class="col-md-6 mb-4">
+        <div class="p-4">
 
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
-          <img src="{{ $product->image }}" class="img-fluid" alt="">
-        </div>
-        <!--Grid column-->
+          <div class="mb-3">
+            <a href="">
+              <span class="badge purple mr-1">Categoría 2</span>
+            </a>
+          </div>
+          <h1>{{ $product->name }}</h1>
+          <p class="lead">
+            <span class="mr-1">
+              <del>{{ $product->price }}{{ env('CUR_SYMBOL', '$') }}</del>
+            </span>
+            <span>{{ $product->price - ($product->price * ($product->discount / 100)) }}{{ env('CUR_SYMBOL', '$') }}
+            </span>
+          </p>
 
-        <!--Grid column-->
-        <div class="col-md-6 mb-4">
+          <p class="lead font-weight-bold">Descripción</p>
 
-          <!--Content-->
-          <div class="p-4">
+          <p>{{ $short }}</p>
 
-            <div class="mb-3">
-              <a href="">
-                <span class="badge purple mr-1">Categoría 2</span>
-              </a>                          
-            </div>
-            <h1>{{ $product->name }}</h1>
-            <p class="lead">
-              <span class="mr-1">
-                <del>{{ $product->price }}{{ env('CUR_SYMBOL', '$') }}</del>
-              </span>
-              <span>{{ $product->price - ($product->price * ($product->discount / 100)) }}{{ env('CUR_SYMBOL', '$') }} </span>
-            </p>
-
-            <p class="lead font-weight-bold">Descripción</p>
-
-            <p>{{ $product->description }}</p>
-
+          <div id="add-to-cart-section">
             <form id="add-to-cart" class="d-flex justify-content-left">
               <input type="hidden" name="product_id" value="{{ $product->id }}">
-              <input type="number" name="quantity" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p ml-2" type="button" id="add-to-cart-toggler">Agregar al carrito
+              <input type="number" name="quantity" value="1" aria-label="Search" class="form-control"
+                style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p ml-2" type="button" id="add-to-cart-toggler">Agregar al
+                carrito
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
             </form>
-
           </div>
-          <!--Content-->
-
         </div>
-        <!--Grid column-->
-
       </div>
-      <!--Grid row-->
-
-    <!--Grid row-->
-    <div class="row row-underline">
-        <div class="col-md-6"> <span class=" deal-text">Especificaciones</span> </div>
-        <div class="col-md-6"> <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a> </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table class="col-md-12">
-                <tbody>
-                    <tr class="row mt-10">
-                        <td class="col-md-4"><span class="p_specification">Sales Package :</span> </td>
-                        <td class="col-md-8">
-                            <ul>
-                                <li>2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide, Warranty Documents</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr class="row mt-10">
-                        <td class="col-md-4"><span class="p_specification">Número de modelo:</span> </td>
-                        <td class="col-md-8">
-                            <ul>
-                                <li> 14-dh0107TU </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr class="row mt-10">
-                        <td class="col-md-4"><span class="p_specification">Part Number :</span> </td>
-                        <td class="col-md-8">
-                            <ul>
-                                <li>7AL87PA</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr class="row mt-10">
-                        <td class="col-md-4"><span class="p_specification">Color :</span> </td>
-                        <td class="col-md-8">
-                            <ul>
-                                <li>Black</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr class="row mt-10">
-                        <td class="col-md-4"><span class="p_specification">Recomendable para :</span> </td>
-                        <td class="col-md-8">
-                            <ul>
-                                <li>Procesamiento y multitareas</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr class="row mt-10">
-                        <td class="col-md-4"><span class="p_specification">Marca de procesador :</span> </td>
-                        <td class="col-md-8">
-                            <ul>
-                                <li>Intel</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-      <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4">
-
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
-
-        </div>
-        <!--Grid column-->
-
+      <div class="container">
+        <h2 class="text-center mx-auto my-4">
+          {{ __('Descripción del Producto') }}
+        </h2>
+        <br>
+        <p class="lead">
+          {{ $product->description }}
+        </p>
       </div>
-      <!--Grid row-->
-
     </div>
-  </main>
+
+    <hr>
+
+    {{-- RELATED PRODUCTS --}}
+    <h2 class="text-center mx-auto my-4">
+      {{ __('Productos Relacionados') }}
+    </h2>
+    <div class="row wow fadeIn mx-auto text-center">
+      @foreach ($related as $elem)
+        <div class="col-md-4 col-xs-12">
+          <div class="related-product mx-2 p-2">
+            <h3>{{ $elem->name }}</h3>
+            <br>
+            <img class="img-fluid" style="height: 128px" src="{{ $elem->image }}" alt="{{ $elem->name }}">
+            <br>
+            <div class="text-center p-2">
+              <a href="/products/{{ $elem->id }}" class="btn btn-primary text-white">
+                {{ __('Ver Producto') }}
+              </a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+
+  </div>
+</main>
 @endsection

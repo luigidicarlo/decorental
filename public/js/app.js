@@ -49751,6 +49751,13 @@ window.addToCart = function (product) {
   }
 
   sessionStorage.setItem('cart', JSON.stringify(cart));
+  var message = '<span class="rounded bg-success text-white lead my-2 p-2 message">Agregado al carrito</span><br><br>';
+  $('#add-to-cart-section').prepend(message);
+  $('#add-to-cart input[name=quantity]').val(1);
+  this.setTimeout(function () {
+    $('#add-to-cart-section > .message').remove();
+    $('#add-to-cart-section br').remove();
+  }, 4000);
 };
 
 /***/ }),

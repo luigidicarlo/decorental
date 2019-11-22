@@ -11100,3 +11100,7 @@ a.text-dark:focus {
   }
 }
 
+.bg-pink {
+  background-color: #ffdae7 !important;
+}
+

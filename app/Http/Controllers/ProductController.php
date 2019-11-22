@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -61,13 +62,29 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('product.show', $product->toArray());
+        $related = Product::where('category_id', $product->category_id)
+                ->where('id', '<>', $product->id)
+                ->orderBy('created_at', 'desc')
+                ->take(3)
+                ->get();
+        return view('product.show')
+                ->with('product', $product)
+                ->with('related', $related);
     }
 
     public function showProduct(Request $request) {
         $product = Product::findOrFail($request->product);
-        
-        return view('product.show', compact('product'));
+        $shortDescription = explode('.', $product->description);
+
+        $related = Product::where('category_id', $product->category_id)
+                ->where('id', '<>', $product->id)
+                ->orderBy('created_at', 'desc')
+                ->take(3)
+                ->get();
+        return view('product.show')
+                ->with('product', $product)
+                ->with('related', $related)
+                ->with('short', $shortDescription[0].'.');
     }
     /*    
 
