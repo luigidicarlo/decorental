@@ -62,6 +62,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $shortDescription = explode('.', $product->description);
+
         $related = Product::where('category_id', $product->category_id)
                 ->where('id', '<>', $product->id)
                 ->orderBy('created_at', 'desc')
@@ -69,7 +71,8 @@ class ProductController extends Controller
                 ->get();
         return view('product.show')
                 ->with('product', $product)
-                ->with('related', $related);
+                ->with('related', $related)
+                ->with('short', $shortDescription[0].'.');
     }
 
     public function showProduct(Request $request) {

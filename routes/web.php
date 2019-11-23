@@ -115,3 +115,5 @@ Route::resource('work', 'WorkController')->middleware('auth');
 
 
 Route::get('/products/{product}', 'ProductController@showProduct');
+
+Route::get('/products-category/{category}', 'CategoryController@show');
