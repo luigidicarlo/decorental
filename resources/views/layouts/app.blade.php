@@ -23,30 +23,24 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md fixed-top-sm justify-content-between flex-nowrap navbar-light">     
+
+        <nav class="navbar navbar-expand-md fixed-top-sm justify-content-between flex-nowrap navbar-light">
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="form-inline d-none d-md-block nav-side-left">
+            <form class="form-inline d-none d-md-block nav-side-left d-flex">
                 <i class="fa fa-search search-icon"></i>
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <input style="width: 84%" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                 <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
             </form>
             <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt=""></a>
             <ul class="navbar-nav flex-row nav-side-right text-center mx">
-                <li class="nav-item icon">
-                    <a style="text-decoration: none; color: #000" href="{{ route('login') }}">
-                        <i class="fa fa-user"></i>&nbsp;
-                        {{ __('Login') }}
-                    </a>
-                </li>
-                <li class="nav-item icon">
-                    <a style="text-decoration: none; color: #000" href="/shopping-cart">
-                        <i class="fa fa-shopping-cart"></i>&nbsp;
-                        {{ __('Carrito') }}
-                    </a>
-                </li>
-            </ul>               
+                <a href="/carrito">
+                <li class="nav-item icon d-flex">
+                    <img src="{{asset('img/decocarri.png')}}" width="50px">
+                    <p style="position: absolute; top: 75px; color: #000;">Carrito</p>
+                </li></a>
+            </ul>
         </nav>
         <nav class="navbar navbar-expand-md">
             <div class="navbar-collapse collapse pt-2 pt-md-0" id="navbar2">
