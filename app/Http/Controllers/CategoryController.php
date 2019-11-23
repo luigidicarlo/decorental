@@ -40,6 +40,13 @@ class CategoryController extends Controller
         return view('category.create', compact('categories'));
     }
 
+    public function showCategories(Category  $category, Request $request){
+        $products =  $category->products->sortByDesc('created_at')->paginate(25);
+                               
+        // return response()->json($products->toArray(), 200);
+        return view('product.list-products', compact('products'));
+    }
+  
     /**
      * Store a newly created resource in storage.
      *

@@ -34,7 +34,8 @@ Route::get('/nuestros-trabajos', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/products/{category}', 'CategoryController@showCategories');
+Route::get('/prueba/{name}', 'ProductController@searchProducts');
 Route::resource('product', 'ProductController')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
 Route::resource('work', 'WorkController')->middleware('auth');

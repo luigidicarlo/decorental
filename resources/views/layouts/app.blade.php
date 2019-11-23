@@ -29,7 +29,7 @@
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="form-inline d-none d-md-block nav-side-left">
+            <form class="form-inline d-none d-md-block nav-side-left" action="/prueba/{$name}" method="get">
                 <i class="fa fa-search search-icon"></i>
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                 <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->

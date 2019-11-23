@@ -26,7 +26,37 @@ class ProductController extends Controller
         $products = Product::all();
 
         return view('product.index', compact('products'));
+        
     }
+
+       
+    // public function showCategories($namecategory){
+    //     $categories = Category::join('products', 'categories.id', '=', 'products.categories_id')
+    //                             ->select('categories.*', 'products.name', 'products.prince','products.discount','products.description')
+    //                             ->SearchCategory($namecategory)
+    //                             ->get()
+    //                             ->latest()
+    //                             ->simplePaginate(25);
+    //     return $categories;
+    //     // return view('product.list-products', compact('categories'));
+    // }
+   
+    
+
+    public function searchCategories($name){
+        $categories = Product::Search($name)->get();
+        return view('product.prueba', compact('categories'));
+    }
+ 
+    // public function showProducts(){
+    //     $products = Product::latest()->simplePaginate();
+    //     return view('product.list-products', compact('products'));
+    // }
+
+    // public function searchProducts($name){
+    //     $products = Product::Search($name)->get();
+    //     return view('product.prueba', compact('products'));
+    // }
 
     /**
      * Show the form for creating a new resource.
