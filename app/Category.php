@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
 
 class Category extends Model
 {
+    use Searchable;
+
     protected $fillable = [
         'name', 'parent_id','id'
     ];
@@ -21,4 +25,8 @@ class Category extends Model
     public function scopeLastest($query){
         return $query->orderBy("id","DESC");
     }
+
+    // public function scopeSearch($query,$name){
+    //     return $query -> where('name','LIKE', "%$name%");
+    // }
 }
