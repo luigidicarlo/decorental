@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.pagination ul {
+    text-align: center;
+    margin: 0 auto;
+}

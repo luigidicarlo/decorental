@@ -40,11 +40,11 @@ class CategoryController extends Controller
         return view('category.create', compact('categories'));
     }
 
-    public function showCategories(Category  $category, Request $request){
-        $products =  $category->products->sortByDesc('created_at')->paginate(25);
+    public function showCategories(Category  $category){
+        $products =  $category->products->sortByDesc('created_at')->paginate(5);
                                
         // return response()->json($products->toArray(), 200);
-        return view('product.list-products', compact('products'));
+        return view('product.list-products')->with('products', $products);
     }
   
     /**

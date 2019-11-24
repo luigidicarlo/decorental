@@ -11100,3 +11100,8 @@ a.text-dark:focus {
   }
 }
 
+.pagination ul {
+  text-align: center;
+  margin: 0 auto;
+}
+
