@@ -109,6 +109,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/product/{category}', 'CategoryController@showCategories');
+Route::get('/prueba/{name}', 'ProductController@searchProducts');
 Route::resource('product', 'ProductController')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
 Route::resource('work', 'WorkController')->middleware('auth');

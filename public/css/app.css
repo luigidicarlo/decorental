@@ -11249,6 +11249,7 @@ img.zoom {
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -11437,7 +11438,7 @@ img.zoom {
   width: 40%;
   opacity: 0;
   filter: alpha(opacity=0);
-  border: 1px solid #FFF;
+  border: 1px solid #fff;
 }
 
 .hovereffect hr:nth-child(3) {
@@ -11731,5 +11732,14 @@ section .section-title {
 
 .bg-pink {
   background-color: #ffdae7 !important;
+}
+
+.pagination ul {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pink {
+  background-color: #e3b4bc;
 }
 

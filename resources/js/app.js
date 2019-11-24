@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+const {matchHeight} = require('jquery-match-height');
 
 window.Vue = require('vue');
 
@@ -78,3 +79,7 @@ window.addToCart = function(product) {
         $('#add-to-cart-section br').remove();
     }, 4000);
 }
+
+$(function() {
+        $('.item-Height').matchHeight();
+}); 
