@@ -74,7 +74,7 @@ Route::get('/ceo', function () {
 });
 
 Route::get('/nuestros-trabajos', function () {
-	$works = Work::paginate(3);
+	$works = Work::paginate(10);
     return view('our-work', ['works' => $works]);
 });
 
@@ -117,5 +117,3 @@ Route::resource('work', 'WorkController')->middleware('auth');
 
 
 Route::get('/products/{product}', 'ProductController@showProduct');
-
-Route::get('/products-category/{category}', 'CategoryController@show');

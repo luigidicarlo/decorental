@@ -65,10 +65,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category, Request $request)
+    public function show(Category $category)
     {
-        $products = $category->products;
-        return response()->json($products->toArray(), 200);
+        //
     }
 
     /**
