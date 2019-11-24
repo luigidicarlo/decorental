@@ -53,10 +53,10 @@ class ProductController extends Controller
     //     return view('product.list-products', compact('products'));
     // }
 
-    // public function searchProducts($name){
-    //     $products = Product::Search($name)->get();
-    //     return view('product.prueba', compact('products'));
-    // }
+    public function searchProducts($name){
+        $products = Product::Search($name)->get();
+        return view('product.prueba', compact('products'));
+    }
 
     /**
      * Show the form for creating a new resource.

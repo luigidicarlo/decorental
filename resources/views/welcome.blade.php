@@ -35,7 +35,7 @@
                 <div class="overlay">
                     <h2>Decoraciones</h2>
                     <center>
-                    <a class="info" href="#">Más Información</a>
+                    <a class="info" href="/product/{{1}}">Más Información</a>
                     </center>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="overlay">
                     <h2>Mobiliario</h2>
                     <center>
-                    <a class="info" href="#">Más Información</a>
+                    <a class="info" href="/product/{{2}}">Más Información</a>
                     </center>
 
                 </div>
@@ -57,7 +57,7 @@
                 <img class="img-responsive" src="{{ asset('img/ventas.jpg') }}" alt="">
                 <div class="overlay">
                     <h2>Ventas</h2>
-                    <center> <a class="info" href="#">Más Información</a></center>
+                    <center> <a class="info" href="/product/{{3}}">Más Información</a></center>
 
                 </div>
             </div>
