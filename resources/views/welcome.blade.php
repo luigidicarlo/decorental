@@ -55,11 +55,7 @@
                 <div class="overlay">
                     <h2>Decoraciones</h2>
                     <center>
-<<<<<<< HEAD
                     <a class="info" href="/product/1">Más Información</a>
-=======
-                    <a class="info" href="#">Más Información</a>
->>>>>>> 20c80140cedcc7fa17787170c082b1c36d6d0dd8
                     </center>
                 </div>
             </div>

@@ -49,7 +49,7 @@
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/quienes-somos">Quienes somos</a>
+                        <a class="nav-link" href="/quienes-somos">¿Quiénes somos?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ceo">CEO</a>
