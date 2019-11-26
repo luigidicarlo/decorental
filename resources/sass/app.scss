@@ -257,7 +257,7 @@ img.zoom {
 /*
 .parallax{
     background-image: url("https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
-    min-height: 500px; 
+    min-height: 500px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -599,6 +599,9 @@ section .section-title {
   text-align: center;
   margin: 0 auto;
 }
-.pink {
+.pinks {
   background-color: #e3b4bc;
+}
+.blanks{
+    background-color:#fff !important;
 }
