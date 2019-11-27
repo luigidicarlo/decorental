@@ -11,16 +11,18 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $products;
+    public $cartTotal;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($products, $cartTotal)
     {
-        //
+        $this->products = $products;
+        $this->cartTotal = $cartTotal;
     }
 
     /**

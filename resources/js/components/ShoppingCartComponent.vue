@@ -82,7 +82,14 @@
                 <h5 class="font-weight-bold">{{ total }}</h5>
               </li>
             </ul>
-            <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Enviar Presupuesto</a>
+            <div class="form-group">
+              <input class="form-control" v-model="email" placeholder="Correo electrónico..." />
+              <br />
+              <button
+                v-on:click="sendBudget()"
+                class="btn btn-dark rounded-pill py-2 btn-block"
+              >Enviar Presupuesto</button>
+            </div>
           </div>
         </div>
       </div>
@@ -101,7 +108,8 @@ export default {
     return {
       cart: JSON.parse(sessionStorage.getItem("cart")),
       products: [],
-      total: 0
+      total: 0,
+      email: null
     };
   },
   mounted() {
@@ -140,12 +148,11 @@ export default {
       var aux = cart.products.find(function(elem) {
         return elem.id === product.id;
       });
-      var newQuantity = document.querySelectorAll('#quantity')[0].value;
-      console.log(newQuantity);
+      var newQuantity = document.querySelectorAll("#quantity")[0].value;
       var index = cart.products.indexOf(aux);
       if (index !== -1) {
         cart.products.splice(index, 1);
-        cart.products.push({id: product.id, quantity: +newQuantity});
+        cart.products.push({ id: product.id, quantity: +newQuantity });
       } else {
         console.error("No se pudo actualizar el producto.");
       }
@@ -159,6 +166,23 @@ export default {
       this.cart.products = this.products;
       this.getTotal();
       sessionStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+    sendBudget() {
+      axios
+        .post(
+          "http://localhost:8080/api/send-budget",
+          {
+            products: this.products,
+            to: this.email,
+            total: this.total,
+          }
+        )
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };

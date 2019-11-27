@@ -12,10 +12,12 @@
 */
 
 use App\Category;
+use App\Mail\SendMail;
 use App\Product;
 use App\User;
 use App\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 # Debug
 Route::get('/debug', function() {
@@ -117,3 +119,25 @@ Route::resource('work', 'WorkController')->middleware('auth');
 
 
 Route::get('/products/{product}', 'ProductController@showProduct');
+Route::get('/products', 'ProductController@index');
+
+Route::post('/api/send-budget', function(Request $request) {
+    $products = $request->products;
+    $to = $request->to;
+    $total = 0;
+
+    foreach ($products as $product) {
+        $price = $product['price'] * (1 - ($product['discount'] / 100)) * $product['quantity'];
+        $total += $price;
+    }
+
+    $mail = new SendMail($products, $total);
+    
+    try {
+        Mail::to($to)->send($mail);
+    } catch(Exception $e) {
+        return response()->json($e->getTrace(), 403);
+    }
+
+    return response()->json($products, 200);
+});
