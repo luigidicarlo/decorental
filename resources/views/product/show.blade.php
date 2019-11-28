@@ -35,7 +35,7 @@
               <input type="hidden" name="product_id" value="{{ $product->id }}">
               <input type="number" name="quantity" value="1" aria-label="Search" class="form-control"
                 style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p ml-2" type="button" id="add-to-cart-toggler">Agregar al
+              <button class="btn btn-primary btn-pink btn-md my-0 p ml-2" type="button" id="add-to-cart-toggler">Agregar al
                 carrito
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
@@ -44,9 +44,12 @@
         </div>
       </div>
       <div class="container">
-        <h2 class="text-center mx-auto my-4">
-          {{ __('Descripción del Producto') }}
-        </h2>
+        <div class="text-center">
+          <h2 class=" mx-auto my-4">
+            {{ __('DESCRIPCIÓN DEL PRODUCTO') }}
+          </h2>  
+        </div>
+        
         <br>
         <p class="lead">
           {{ $product->description }}
@@ -57,7 +60,7 @@
     <hr>
 
     {{-- RELATED PRODUCTS --}}
-    <h2 class="text-center mx-auto my-4">
+    <h2 class="text-center mx-auto my-4 section-title">
       {{ __('Productos Relacionados') }}
     </h2>
     <div class="row wow fadeIn mx-auto text-center">
@@ -69,7 +72,7 @@
             <img class="img-fluid" style="height: 128px" src="{{ $elem->image }}" alt="{{ $elem->name }}">
             <br>
             <div class="text-center p-2">
-              <a href="/products/{{ $elem->id }}" class="btn btn-primary text-white">
+              <a href="/products/{{ $elem->id }}" class="btn btn-primary btn-pink text-white">
                 {{ __('Ver Producto') }}
               </a>
             </div>

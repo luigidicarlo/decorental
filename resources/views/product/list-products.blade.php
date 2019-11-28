@@ -1,4 +1,5 @@
-@extends("layouts.app");
+@extends('layouts.app')
+
 @section("content")
 <div class="container">
 <div class="row">
@@ -18,5 +19,6 @@
 </div>
 <div class="pagination my-4 text-center mx-auto">
     {{$products->links()}}
-</div> 
+</div>
+
 @endsection

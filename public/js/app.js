@@ -1942,6 +1942,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1949,7 +1959,9 @@ __webpack_require__.r(__webpack_exports__);
       cart: JSON.parse(sessionStorage.getItem("cart")),
       products: [],
       total: 0,
-      email: null
+      email: null,
+      name: null,
+      telephone: null
     };
   },
   mounted: function mounted() {
@@ -2013,9 +2025,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     sendBudget: function sendBudget() {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://localhost:8080/api/send-budget", {
-        total: this.total,
         products: this.products,
-        to: this.email
+        client: {
+          email: this.email,
+          name: this.name,
+          telephone: this.telephone
+        },
+        total: this.total
       }).then(function (response) {
         console.log(response.data);
       })["catch"](function (error) {
@@ -37890,6 +37906,64 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Nombre")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.name,
+                          expression: "name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nombre...", required: "" },
+                      domProps: { value: _vm.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.name = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Teléfono")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.telephone,
+                          expression: "telephone"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Teléfono...",
+                        required: ""
+                      },
+                      domProps: { value: _vm.telephone },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.telephone = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Correo Electrónico")]),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -37900,7 +37974,11 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { placeholder: "Correo electrónico..." },
+                      attrs: {
+                        type: "email",
+                        placeholder: "Correo electrónico...",
+                        required: ""
+                      },
                       domProps: { value: _vm.email },
                       on: {
                         input: function($event) {
@@ -37910,10 +37988,10 @@ var render = function() {
                           _vm.email = $event.target.value
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("br"),
-                    _vm._v(" "),
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
                     _c(
                       "button",
                       {
@@ -50345,8 +50423,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\lehd\docs\dev\php\laravel\decorental\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\lehd\docs\dev\php\laravel\decorental\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\decorental-mail\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\decorental-mail\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -4,6 +4,15 @@
 
 <div class="col-md-1"></div>
 <div class="col-xs-12 col-md-10 mx-auto">
+    <br>
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <a href="/home" class="btn btn-primary btn-pink text-white">
+                {{ __('Volver al inicio del administrador') }}
+            </a>    
+        </div>    
+    </div>
+    <br>
     <div class="card">
         <div class="card-header">
             <h1 class="text-center">Trabajos realizados</h1>
@@ -54,5 +63,5 @@
         </div>
     </div>
 </div>
-
+<br><br><br>
 @endsection

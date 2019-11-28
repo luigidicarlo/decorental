@@ -111,15 +111,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/product/{category}', 'CategoryController@showCategories');
+
+//Ruta para ver los productos de cierta categoría
+Route::get('/categorias/{category}', 'CategoryController@showCategories');
+
 Route::get('/prueba/{name}', 'ProductController@searchProducts');
 Route::resource('product', 'ProductController')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
 Route::resource('work', 'WorkController')->middleware('auth');
 
-
+//Ruta para ver un producto en específico
 Route::get('/products/{product}', 'ProductController@showProduct');
-Route::get('/products', 'ProductController@index');
+
+// (Me parece que esta ruta no debe existir sin autenticación. Y con autenticación ya existe).
+//Route::get('/products', 'ProductController@index');
 
 Route::post('/api/send-budget', function(Request $request) {
     $products = $request->products;

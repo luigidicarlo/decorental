@@ -12,7 +12,7 @@
                         <div class="card-header p-0">
                             <div class="bg-pink text-white text-center py-2">
                                 <h3><i class="fa fa-envelope"></i> Contáctanos</h3>
-                                <p class="m-0">Con gusto te ayudaremos</p>
+                                <p class="m-0">Con gusto te ayudaremos a celebrar</p>
                             </div>
                         </div>
                         <div class="card-body p-3">
