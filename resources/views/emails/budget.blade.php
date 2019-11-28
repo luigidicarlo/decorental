@@ -14,8 +14,8 @@
             </h1>
         </div>
         <div style="padding: 2rem; padding-bottom: 0.5rem;">
-            <p style="font-size: 1.1rem">
-                ¡Hola! Recibes este correo porque solicitaste un presupuesto en Decorental.
+            <p style="font-size: 1.1rem; font-weight: bold;">
+                ¡Hola! Un nuevo cliente ha solicitado un presupuesto en Decorental.
             </p>
             <p style="font-size: 1.1rem">
                 A continuación, podrás visualizar los productos que están contemplados en el presupuesto.
@@ -59,6 +59,21 @@
                     {{ $cartTotal }}
                 </strong>
             </p>
+        </div>
+        <hr>
+        <div style="padding: 1rem;">
+            <h2>Información de Contacto del Cliente</h2>
+            <ul style="list-style: none;">
+                <li>
+                    Nombre: {{ $client->name }}
+                </li>
+                <li>
+                    Correo: <a href="mailto:{{ $client->email }}">{{ $client->email }}</a>
+                </li>
+                <li>
+                    Teléfono: {{ $client->telephone }}
+                </li>
+            </ul>
         </div>
     </div>
 </body>

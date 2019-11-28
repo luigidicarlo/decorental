@@ -83,8 +83,18 @@
               </li>
             </ul>
             <div class="form-group">
-              <input class="form-control" v-model="email" placeholder="Correo electrónico..." />
-              <br />
+              <label>Nombre</label>
+              <input class="form-control" v-model="name" placeholder="Nombre..." required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input class="form-control" type="text" v-model="telephone" placeholder="Teléfono..." required>
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input class="form-control" type="email" v-model="email" placeholder="Correo electrónico..." required>
+            </div>
+            <div class="form-group">
               <button
                 v-on:click="sendBudget()"
                 class="btn btn-dark rounded-pill py-2 btn-block"
@@ -109,7 +119,9 @@ export default {
       cart: JSON.parse(sessionStorage.getItem("cart")),
       products: [],
       total: 0,
-      email: null
+      email: null,
+      name: null,
+      telephone: null
     };
   },
   mounted() {
@@ -173,7 +185,11 @@ export default {
           "http://localhost:8080/api/send-budget",
           {
             products: this.products,
-            to: this.email,
+            client: {
+              email: this.email,
+              name: this.name,
+              telephone: this.telephone,
+            },
             total: this.total,
           }
         )

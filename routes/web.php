@@ -123,7 +123,7 @@ Route::get('/products', 'ProductController@index');
 
 Route::post('/api/send-budget', function(Request $request) {
     $products = $request->products;
-    $to = $request->to;
+    $client = $request->client;
     $total = 0;
 
     foreach ($products as $product) {
@@ -131,12 +131,12 @@ Route::post('/api/send-budget', function(Request $request) {
         $total += $price;
     }
 
-    $mail = new SendMail($products, $total);
+    $mail = new SendMail($products, $total, $client);
     
     try {
-        Mail::to($to)->send($mail);
+        Mail::to(env('OWNER_EMAIL', 'decorental@gmail.com'))->send($mail);
     } catch(Exception $e) {
-        return response()->json($e->getTrace(), 403);
+        return response()->json($e->getTrace(), 500);
     }
 
     return response()->json($products, 200);
