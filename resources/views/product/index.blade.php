@@ -32,11 +32,16 @@
                 <li class="list-group-item">
                     <div class="clearfix">
                         <div class="float-left mr-auto">
-                            <a href="/product/{{ $product->id }}">
-                                {{ $product->name }}
-                            </a>
+                            <img src="{{ $product->image }}" width="70px">
                             <span>
-                                | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
+                                |
+                                <a href="/product/{{ $product->id }}">
+                                    {{ $product->name }}
+                                </a>
+                            </span>
+                                
+                            <span>
+                                Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
                             </span>
                         </div>
                         <div class="float-right ml-auto">

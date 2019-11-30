@@ -55,8 +55,8 @@ Route::get('/debug', function() {
 });
 
 Route::get('/', function () {
-	$products = Product::all();
-    return view('welcome', ['products' => $products]);
+	$works = Work::orderBy('created_at', 'desc')->take(9)->get();
+    return view('welcome', ['works' => $works]);
 });
 
 Route::get('/contacto', function () {
@@ -76,7 +76,7 @@ Route::get('/ceo', function () {
 });
 
 Route::get('/nuestros-trabajos', function () {
-	$works = Work::paginate(10);
+	$works = Work::orderBy('created_at', 'desc')->paginate(10);
     return view('our-work', ['works' => $works]);
 });
 
@@ -115,7 +115,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Ruta para ver los productos de cierta categoría
 Route::get('/categorias/{category}', 'CategoryController@showCategories');
 
-Route::get('/prueba/{name}', 'ProductController@searchProducts');
+Route::any('/busqueda', 'ProductController@searchProducts');
 Route::resource('product', 'ProductController')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
 Route::resource('work', 'WorkController')->middleware('auth');

@@ -11,12 +11,6 @@
 
       <div class="col-md-6 mb-4">
         <div class="p-4">
-
-          <div class="mb-3">
-            <a href="">
-              <span class="badge purple mr-1">Categoría 2</span>
-            </a>
-          </div>
           <h1>{{ $product->name }}</h1>
           <p class="lead">
             <span class="mr-1">

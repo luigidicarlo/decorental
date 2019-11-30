@@ -61,9 +61,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image">Imagen</label>
+                    <label for="exampleFormControlSelect1">Example select</label>
+                    @if ($categories->count())
+                        <select class="form-control" name="category_id" id="category_id">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        <h3>No hay categorías para mostrar</h3>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <label for="image">URL de imagen</label>
                     <br>
-                    <input type="file" name="image" id="image" class="form-control" placeholder="Imagen del producto">
+                    <input type="text" name="image" id="image" class="form-control" placeholder="Imagen del producto">
                     @if ($errors->has('image'))
                         <span class="form-text text-danger">
                             {{ $errors->first('image') }}

@@ -11,22 +11,22 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('img/carrusel1.jpg') }}" class="d-block w-100 img-fluid vh-100" alt="...">
+        <img src="{{ asset('img/carrusel1.jpg') }}" class="d-block w-100 img-fluid banner-slide vh-100" alt="...">
         <div class="carousel-caption d-none d-sm-block">
           <h5>First slide label</h5>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/ll8.jpg') }}" class="d-block w-100 img-fluid vh-100" alt="...">
+        <img src="{{ asset('img/ll8.jpg') }}" class="d-block w-100 img-fluid banner-slide vh-100" alt="...">
         <div class="carousel-caption d-none d-sm-block">
           <h5>Second slide label</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/52.jpg') }}" class="d-block w-100 img-fluid vh-100" alt="...">
-        <div class="carousel-caption d-sm-block">
+        <img src="{{ asset('img/52.jpg') }}" class="d-block w-100 img-fluid banner-slide vh-100" alt="...">
+        <div class="carousel-caption d-none d-sm-block">
           <h5>Third slide label</h5>
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
@@ -44,7 +44,7 @@
 </div>
 
 <br><br>
-<div class="row">
+<div class="text-center mx-auto">
     <h1 class="section-title text-center mx-auto">CATEGORÍAS</h1>
 </div>
 <section class="container pt-3">
@@ -104,87 +104,62 @@
 </div>
 
 <br><br>
-<div class="row">
+<div class="text-center mx-auto">
     <h1 class="section-title text-center mx-auto">TRABAJOS RECIENTES</h1>
 </div>
-<section class="carousel slide" data-ride="carousel" id="postsCarousel">
-    <div class="container pt-0 mt-2 carousel-inner">
-        <div class="row">
-            <div class="col-12 py-1 text-md-right lead">
-                <button onclick="previous()" class="btn btn-outline-secondary prev" title="go back"><i class="fa fa-lg fa-chevron-left"></i></button>
-                <button onclick="next()" class="btn btn-outline-secondary next" title="more"><i class="fa fa-lg fa-chevron-right"></i></button>
-            </div>
-        </div>
-        <div class="carousel-item active">
+@if ($works->count())
+    <section class="carousel slide" data-ride="carousel" id="postsCarousel">
+        <div class="container pt-0 mt-2 carousel-inner">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="{{ asset('img/2.jpg') }}" alt="Carousel 1">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="{{ asset('img/6.jpg') }}" alt="Carousel 2">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="{{ asset('img/9.jpg') }}" alt="Carousel 3">
-                        </div>
-                    </div>
+                <div class="col-12 py-1 text-md-right lead">
+                    <button onclick="previous()" class="btn btn-outline-secondary prev" title="go back"><i class="fa fa-lg fa-chevron-left"></i></button>
+                    <button onclick="next()" class="btn btn-outline-secondary next" title="more"><i class="fa fa-lg fa-chevron-right"></i></button>
                 </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="{{ asset('img/8.jpg') }}" alt="Carousel 4">
-                        </div>
+            @foreach ($works->chunk(3) as $count => $item)
+                <div class="carousel-item {!! $count == 0 ? 'active' : '' !!}">
+                    <div class="row">
+                        @foreach ($item as $work)
+
+                            <div class="col-md-4">
+                                <div class="card h-100">
+                                    <div class="card-img-top card-img-top-200">
+                                        <a data-toggle="modal" href="#" class="fancybox" rel="ligthbox" data-target="#id{{ $work->id }}">
+                                            <img class="img-fluid" src="{{ $work->url }}" alt="Carousel 1">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade bd-example-modal-lg show" id="id{{ $work->id }}" role="dialog">
+                                <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" id="dynamic-content">
+                                                <img src="{{ $work->url }}" class="img-fluid" alt=""/>
+                                            </div>
+                                        </div>
+                                   </div>
+                            </div>
+
+                        @endforeach
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-img-top card-img-top-200">
-                            <img class="img-fluid" src="{{ asset('img/7.jpg') }}" alt="Carousel 5">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <div class="card-img-top card-img-top-200">
-                            <a href="#" data-toggle="modal" data-target="#image-gallery" data-image="https://i.ibb.co/D8Snp0L/IMG-20180205-WA0031.jpg">
-                                <img class="img-fluid" src="https://i.ibb.co/6yrd1Ld/IMG-20180205-WA0022.jpg" alt="Carousel 6">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-<div class="modal fade bd-example-modal-lg show" id="image-gallery" role="dialog">
-            <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body" id="dynamic-content">
-                            <img src="https://i.ibb.co/6yrd1Ld/IMG-20180205-WA0022.jpg" class="img-fluid" alt=""/>
-                        </div>
-                    </div>
-               </div>
-        </div>
-</section>
+        <br>
+        <br>
+        <br>
+        <br>
+    </section>
+
+@else
+    <br><br>
+    <h1 class="text-center mx-auto">NO HAY TRABAJOS PARA MOSTRAR</h1>
+    <br><br>
+@endif
+
 @endsection

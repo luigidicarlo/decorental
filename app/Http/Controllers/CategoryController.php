@@ -41,7 +41,7 @@ class CategoryController extends Controller
     }
 
     public function showCategories(Category  $category, Request $request){
-        $products =  $category->products->sortByDesc('created_at')->paginate(25);
+        $products =  $category->products->sortByDesc('created_at')->paginate(12);
         // return response()->json($products->toArray(), 200);
         return view('product.list-products')->with('products', $products);
     }

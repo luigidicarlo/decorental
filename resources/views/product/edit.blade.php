@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <label for="image">Imagen</label>
                     <br>
-                    <input type="file" name="image" id="image" class="form-control" placeholder="Imagen del producto">
+                    <input type="text" name="image" id="image" class="form-control" value="{{ $product->image }}" placeholder="Imagen del producto">
                     @if ($errors->has('image'))
                         <span class="form-text text-danger">
                             {{ $errors->first('image') }}

@@ -28,9 +28,10 @@
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="form-inline d-none nav-side-left d-md-flex">
+            <form class="form-inline d-none nav-side-left d-md-flex" action="/busqueda" method="POST">
+                {{ csrf_field() }}
                 <i class="fa fa-search search-icon"></i>
-                <input style="width: 84%" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <input style="width: 84%" name="busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                 <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
             </form>
             <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt=""></a>

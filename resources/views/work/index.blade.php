@@ -54,7 +54,9 @@
                 </li>
                 @endforeach
             </ul>
-
+            <div class="float-right">
+                {{ $works->links() }}
+            </div>
             @else
 
             <h3>No hay resultados para mostrar</h3>
