@@ -62,6 +62,12 @@
                         <a class="nav-link" href="/contacto">Contacto</a>
                     </li>
                 </ul>
+                <form class="form-inline d-sm-block d-md-none d-md-none pl-3 mb-2" action="/busqueda" method="POST">
+                {{ csrf_field() }}
+                <i class="fa fa-search search-icon"></i>
+                <input style="width: 84%" name="busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                </form>
             </div>
         </nav>
 

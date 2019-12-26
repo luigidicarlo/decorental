@@ -50,52 +50,36 @@
 <section class="container pt-3">
     <div class="row mb-5">
         <div class="col-md-4 mb-4">
-            <div class="hovereffec">
+            <div class="text-center">
                 <img class="img-fluid mx-auto" src=" {{ asset('img/decora.jpg') }}" alt="">
-                <div class="overlay">
-                    <h2>Decoraciones</h2>
-                    <center>
-                    <a class="info" href="/categorias/1">Más Información</a>
-                    </center>
-                </div>
+                <a href="/categorias/1" class="btn btn-primary btn-pink text-white" style="width: 100%;">Decoraciones</a>
             </div>
         </div>
         <div class="col-md-4 mb-4">
-            <div class="hovereffec">
+            <div class="text-center">
                 <img class="img-fluid mx-auto" src=" {{ asset('img/mobiliario.jpg') }}" alt="">
-                <div class="overlay">
-                    <h2>Mobiliario</h2>
-                    <center>
-                    <a class="info" href="/categorias/2">Más Información</a>
-                    </center>
-
-                </div>
+                <a href="/categorias/2" class="btn btn-primary btn-pink text-white" style="width: 100%;">Mobiliario</a>
             </div>
         </div>
         <div class="col-md-4 mb-4">
-            <div class="hovereffec">
+            <div class="text-center">
                 <img class="img-fluid mx-auto" src="{{ asset('img/ventas.jpg') }}" alt="">
-                <div class="overlay">
-                    <h2>Ventas</h2>
-                    <center> <a class="info" href="/categorias/3">Más Información</a></center>
-
-                </div>
+                <a href="/categorias/3" class="btn btn-primary btn-pink text-white" style="width: 100%;">Organización de eventos</a>
             </div>
         </div>
     </div>
 </section>
 
-
 <div class="jumbotron parent text-center" style="color: rgb(0, 0, 0);">
     <div class="background"></div>
     <div class="content my-auto">
         <div class="content-no-flex">
-           <h1 class="text-white title-header">NOS ADAPTAMOS A TUS NECESIDADES</h1>
+           <h1 class="text-white title-header">PERSONALIZAMOS TU EVENTO</h1>
            <p class="lead hero-description text-white">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit
            </p>
             <p class="lead text-white">
-                <a href="#contact" class="btn btn-primary btn-lg">
+                <a href="#contact" style="background: #e3b4bc; border: 0;" class="btn btn-primary btn-lg">
                     Empieza ya
                 </a>
             </p>
