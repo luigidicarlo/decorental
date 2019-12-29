@@ -128,7 +128,7 @@ export default {
     if (this.cart.products.length > 0) {
       axios
         .post(
-          "http://localhost:8080/shopping-cart-products",
+          "https://decorentaleventos.com/shopping-cart-products",
           JSON.parse(sessionStorage.getItem("cart"))
         )
         .then(response => {
@@ -182,7 +182,7 @@ export default {
     sendBudget() {
       axios
         .post(
-          "http://localhost:8080/api/send-budget",
+          "https://decorentaleventos.com/api/send-budget",
           {
             products: this.products,
             client: {
