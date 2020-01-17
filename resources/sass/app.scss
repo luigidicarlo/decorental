@@ -7,12 +7,18 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
+@font-face {
+  font-family: 'gothic';
+  src: url('./gothic.eot');
+  src: local('gothic'), url('./gothic.woff') format('woff'), url('./gothic.ttf') format('truetype');
+}
+
 body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: 'gothic' !important;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background-color: #f8f9fa !important;
+  background-color: #fdfdfd !important;
   padding: 0 !important;
 }
 .card {
@@ -23,7 +29,7 @@ body {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #deb4c2;
+  background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -101,7 +107,7 @@ nav.navbar.navbar-expand-md.fixed-top-sm.justify-content-between.flex-nowrap.nav
 
 /* FORMULARIO DE CONTACTO */
 .bg-pink {
-  background-color: #c4366d;
+  background-color: #e3b4bc;
   color: #fff;
 }
 
@@ -115,6 +121,17 @@ nav.navbar.navbar-expand-md.fixed-top-sm.justify-content-between.flex-nowrap.nav
 
 .form-container {
   border-color: #f7f7f7 !important;
+}
+
+/* PÁGINA DE PRODUCTO INDIVIDUAL */
+
+.btn-pink {
+  background-color: #e3b4bc;
+  border: 0 !important;
+}
+
+.btn-pink:hover {
+  background-color: #dc99a4;
 }
 
 /* GALERIA DE OUR WORK */
@@ -459,9 +476,8 @@ img.zoom {
   top: 0;
   left: 0;
   width: 100%;
-  height: 400px;
-  background-image: url("https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
-  background-image: url("../img/paradeco.jpg");
+  height: 400px;  
+  background-image: url("../images/paradeco.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -496,7 +512,7 @@ img.zoom {
   text-transform: uppercase;
   display: inline-block;
   font-size: 30;
-  font-family: oswald;
+  font-family: 'gothic' !important;
   text-decoration: none;
   background-image: linear-gradient(to right, #e3b4bc, #e3b4bc);
   background-position: bottom left;
@@ -591,9 +607,16 @@ section .section-title {
   .nav-link-container {
     padding-left: 15px;
   }
-}
-.bg-pink {
-  background-color: #ffdae7 !important;
+  .banner-slide {
+    height: auto !important;
+  }
+  .col-movil {
+    margin-top: 30px;
+  }
+  .nav-logo {
+    width: 170px;     
+    height: 85px;
+  }
 }
 .pagination ul {
   text-align: center;
@@ -604,4 +627,25 @@ section .section-title {
 }
 .blanks{
     background-color:#fff !important;
+}
+
+.image-height {
+  height: 350px;
+}
+
+.bordered.square {
+  height: 150px;
+  width: 100%;
+  margin-top: 30px;
+}
+.bordered.large-square {
+  height: 250px;
+  width: 100%;
+}
+.bordered {
+  background-color: #fdfdfd;
+  background-image: linear-gradient(to right, #e3b4bc 10%, transparent 10%), linear-gradient(to right, #e3b4bc 10%, transparent 10%), linear-gradient(to bottom, #e3b4bc 10%, transparent 10%), linear-gradient(to bottom, #e3b4bc 10%, transparent 10%);
+  background-size: 90% 5px, 90% 5px, 5px 90%, 5px 90%;
+  background-position: 0% 0%, 0% 100%, 0% 0%, 100% 0%;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
 }

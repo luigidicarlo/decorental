@@ -11,16 +11,19 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $products;
+    public $cartTotal;
+    public $client;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct($products, $cartTotal, $client) {
+        $this->products = $products;
+        $this->cartTotal = $cartTotal;
+        $this->client = $client;
     }
 
     /**
@@ -28,8 +31,7 @@ class SendMail extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->subject('Presupuesto Decorental')->view('emails.budget');
     }
 }

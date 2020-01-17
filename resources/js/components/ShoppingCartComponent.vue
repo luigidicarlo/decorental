@@ -82,7 +82,24 @@
                 <h5 class="font-weight-bold">{{ total }}</h5>
               </li>
             </ul>
-            <a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Enviar Presupuesto</a>
+            <div class="form-group">
+              <label>Nombre</label>
+              <input class="form-control" v-model="name" placeholder="Nombre..." required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input class="form-control" type="text" v-model="telephone" placeholder="Teléfono..." required>
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input class="form-control" type="email" v-model="email" placeholder="Correo electrónico..." required>
+            </div>
+            <div class="form-group">
+              <button
+                v-on:click="sendBudget()"
+                class="btn btn-dark rounded-pill py-2 btn-block"
+              >Enviar Presupuesto</button>
+            </div>
           </div>
         </div>
       </div>
@@ -101,7 +118,10 @@ export default {
     return {
       cart: JSON.parse(sessionStorage.getItem("cart")),
       products: [],
-      total: 0
+      total: 0,
+      email: null,
+      name: null,
+      telephone: null
     };
   },
   mounted() {
@@ -140,12 +160,11 @@ export default {
       var aux = cart.products.find(function(elem) {
         return elem.id === product.id;
       });
-      var newQuantity = document.querySelectorAll('#quantity')[0].value;
-      console.log(newQuantity);
+      var newQuantity = document.querySelectorAll("#quantity")[0].value;
       var index = cart.products.indexOf(aux);
       if (index !== -1) {
         cart.products.splice(index, 1);
-        cart.products.push({id: product.id, quantity: +newQuantity});
+        cart.products.push({ id: product.id, quantity: +newQuantity });
       } else {
         console.error("No se pudo actualizar el producto.");
       }
@@ -159,6 +178,27 @@ export default {
       this.cart.products = this.products;
       this.getTotal();
       sessionStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+    sendBudget() {
+      axios
+        .post(
+          "http://localhost:8080/api/send-budget",
+          {
+            products: this.products,
+            client: {
+              email: this.email,
+              name: this.name,
+              telephone: this.telephone,
+            },
+            total: this.total,
+          }
+        )
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };

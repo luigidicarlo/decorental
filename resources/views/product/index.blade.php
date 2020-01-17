@@ -4,6 +4,15 @@
 
 <div class="col-md-1"></div>
 <div class="col-xs-12 col-md-10 mx-auto">
+    <br><br>
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <a href="/home" class="btn btn-primary btn-pink text-white">
+                {{ __('Volver al inicio del administrador') }}
+            </a>    
+        </div>        
+    </div>
+    <br>
     <div class="card">
         <div class="card-header">
             <h1 class="text-center">Productos</h1>
@@ -23,11 +32,16 @@
                 <li class="list-group-item">
                     <div class="clearfix">
                         <div class="float-left mr-auto">
-                            <a href="/product/{{ $product->id }}">
-                                {{ $product->name }}
-                            </a>
+                            <img src="{{ $product->image }}" width="70px">
                             <span>
-                                | Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
+                                |
+                                <a href="/product/{{ $product->id }}">
+                                    {{ $product->name }}
+                                </a>
+                            </span>
+                                
+                            <span>
+                                Precio: {{ $product->price }} {{ env('CUR_SYMBOL', 'VEF') }}
                             </span>
                         </div>
                         <div class="float-right ml-auto">
@@ -55,5 +69,6 @@
         </div>
     </div>
 </div>
+<br><br><br>
 
 @endsection

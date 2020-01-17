@@ -12,10 +12,12 @@
 */
 
 use App\Category;
+use App\Mail\SendMail;
 use App\Product;
 use App\User;
 use App\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 # Debug
 Route::get('/debug', function() {
@@ -53,8 +55,8 @@ Route::get('/debug', function() {
 });
 
 Route::get('/', function () {
-	$products = Product::all();
-    return view('welcome', ['products' => $products]);
+	$works = Work::orderBy('created_at', 'desc')->take(9)->get();
+    return view('welcome', ['works' => $works]);
 });
 
 Route::get('/contacto', function () {
@@ -74,7 +76,7 @@ Route::get('/ceo', function () {
 });
 
 Route::get('/nuestros-trabajos', function () {
-	$works = Work::paginate(10);
+	$works = Work::orderBy('created_at', 'desc')->paginate(10);
     return view('our-work', ['works' => $works]);
 });
 
@@ -109,11 +111,38 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/product/{category}', 'CategoryController@showCategories');
-Route::get('/prueba/{name}', 'ProductController@searchProducts');
+
+//Ruta para ver los productos de cierta categoría
+Route::get('/categorias/{category}', 'CategoryController@showCategories');
+
+Route::any('/busqueda', 'ProductController@searchProducts');
 Route::resource('product', 'ProductController')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
 Route::resource('work', 'WorkController')->middleware('auth');
 
-
+//Ruta para ver un producto en específico
 Route::get('/products/{product}', 'ProductController@showProduct');
+
+// (Me parece que esta ruta no debe existir sin autenticación. Y con autenticación ya existe).
+//Route::get('/products', 'ProductController@index');
+
+Route::post('/api/send-budget', function(Request $request) {
+    $products = $request->products;
+    $client = $request->client;
+    $total = 0;
+
+    foreach ($products as $product) {
+        $price = $product['price'] * (1 - ($product['discount'] / 100)) * $product['quantity'];
+        $total += $price;
+    }
+
+    $mail = new SendMail($products, $total, $client);
+    
+    try {
+        Mail::to(env('OWNER_EMAIL', 'decorental@gmail.com'))->send($mail);
+    } catch(Exception $e) {
+        return response()->json($e->getTrace(), 500);
+    }
+
+    return response()->json($products, 200);
+});

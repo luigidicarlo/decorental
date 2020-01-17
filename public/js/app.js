@@ -1935,13 +1935,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       cart: JSON.parse(sessionStorage.getItem("cart")),
       products: [],
-      total: 0
+      total: 0,
+      email: null,
+      name: null,
+      telephone: null
     };
   },
   mounted: function mounted() {
@@ -1977,8 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
       var aux = cart.products.find(function (elem) {
         return elem.id === product.id;
       });
-      var newQuantity = document.querySelectorAll('#quantity')[0].value;
-      console.log(newQuantity);
+      var newQuantity = document.querySelectorAll("#quantity")[0].value;
       var index = cart.products.indexOf(aux);
 
       if (index !== -1) {
@@ -2003,6 +2022,21 @@ __webpack_require__.r(__webpack_exports__);
       this.cart.products = this.products;
       this.getTotal();
       sessionStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+    sendBudget: function sendBudget() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://localhost:8080/api/send-budget", {
+        products: this.products,
+        client: {
+          email: this.email,
+          name: this.name,
+          telephone: this.telephone
+        },
+        total: this.total
+      }).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -37871,14 +37905,106 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-dark rounded-pill py-2 btn-block",
-                      attrs: { href: "#" }
-                    },
-                    [_vm._v("Enviar Presupuesto")]
-                  )
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Nombre")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.name,
+                          expression: "name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Nombre...", required: "" },
+                      domProps: { value: _vm.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.name = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Teléfono")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.telephone,
+                          expression: "telephone"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        placeholder: "Teléfono...",
+                        required: ""
+                      },
+                      domProps: { value: _vm.telephone },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.telephone = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Correo Electrónico")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.email,
+                          expression: "email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "email",
+                        placeholder: "Correo electrónico...",
+                        required: ""
+                      },
+                      domProps: { value: _vm.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.email = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-dark rounded-pill py-2 btn-block",
+                        on: {
+                          click: function($event) {
+                            return _vm.sendBudget()
+                          }
+                        }
+                      },
+                      [_vm._v("Enviar Presupuesto")]
+                    )
+                  ])
                 ])
               ])
             ]
@@ -50297,8 +50423,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\thaymer\decorental\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\thaymer\decorental\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\decorental-mail\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\decorental-mail\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

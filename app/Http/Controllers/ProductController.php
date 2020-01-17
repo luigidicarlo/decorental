@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -10,10 +11,12 @@ class ProductController extends Controller
 {
     public function validation(Request $request) {
         return $request->validate([
+            'category_id' => 'required',
             'name' => 'required|min:3|max:128',
             'description' => 'required',
             'price' => 'required|min:0.01|max:99999999.99',
-            'discount' => 'nullable|min:0.01|max:100'
+            'discount' => 'nullable|min:0.01|max:100',
+            'image' => 'required'
         ]);
     }
 
@@ -24,7 +27,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::orderBy('created_at', 'desc')->paginate(10);
 
         return view('product.index', compact('products'));
         
@@ -54,8 +57,9 @@ class ProductController extends Controller
     //     return view('product.list-products', compact('products'));
     // }
 
-    public function searchProducts($name){
-        $products = Product::Search($name)->get();
+    public function searchProducts(Request $request){
+        $name = $request->busqueda;
+        $products = Product::Search($name)->paginate(12);
         return view('product.prueba', compact('products'));
     }
 
@@ -66,7 +70,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $categories = Category::all();
+        return view('product.create', compact('categories'));
     }
 
     /**

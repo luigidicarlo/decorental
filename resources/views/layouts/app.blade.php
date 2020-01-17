@@ -28,17 +28,17 @@
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="form-inline d-none d-md-block nav-side-left d-flex">
+            <form class="form-inline d-none nav-side-left d-md-flex" action="/busqueda" method="POST">
+                {{ csrf_field() }}
                 <i class="fa fa-search search-icon"></i>
-                <input style="width: 84%" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <input style="width: 84%" name="busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
                 <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
             </form>
-            <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt=""></a>
-            <ul class="navbar-nav flex-row nav-side-right text-center mx">
+            <a href="/" class="navbar-brand mx-auto"><img src="{{ asset('img/decorental.jpg') }}" width="200" height="100" alt="" class="nav-logo"></a>
+            <ul class="navbar-nav nav-side-right text-center">
                 <a href="/carrito">
-                <li class="nav-item icon d-flex">
-                    <img src="{{asset('img/decocarri.png')}}" width="50px">
-                    <p style="position: absolute; top: 75px; color: #000;">Carrito</p>
+                <li class="icon">
+                    <img src="{{asset('img/decocarri.png')}}" width="70px">
                 </li></a>
             </ul>
         </nav>
@@ -49,18 +49,24 @@
                         <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/quienes-somos">¿Quiénes somos?</a>
+                        <a class="nav-link" href="/categorias/1">Decoraciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/ceo">CEO</a>
+                        <a class="nav-link" href="/categorias/2">Mobiliario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/nuestros-trabajos">Nuestros Trabajos</a>
+                        <a class="nav-link" href="/categorias/3">Organización de eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contacto">Contacto</a>
+                        <a class="nav-link" href="/contacto">Contáctanos</a>
                     </li>
                 </ul>
+                <form class="form-inline d-sm-block d-md-none d-md-none pl-3 mb-2" action="/busqueda" method="POST">
+                {{ csrf_field() }}
+                <i class="fa fa-search search-icon"></i>
+                <input style="width: 84%" name="busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                </form>
             </div>
         </nav>
 
@@ -77,7 +83,7 @@
                         <ul class="list-unstyled quick-links">
                             <li><a href="/quienes-somos"><i class="fa fa-angle-double-right"></i>Quienes somos</a></li>
                             <li><a href="/ceo"><i class="fa fa-angle-double-right"></i>CEO</a></li>
-                            <li><a href="nuestros-trabajos"><i class="fa fa-angle-double-right"></i>Nuestros trabajos</a></li>
+                            <li><a href="nuestros-trabajos"><i class="fa fa-angle-double-right"></i>Servicios</a></li>
                             <li><a href="/contacto"><i class="fa fa-angle-double-right"></i>Contáctanos</a></li>
                         </ul>
                     </div>
@@ -86,18 +92,15 @@
                         <ul class="list-unstyled quick-links">
                             <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Decoraciones</a></li>
                             <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Mobiliario</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Ventas</a></li>
+                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Organización de eventos</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                         <ul class="list-unstyled list-inline social text-center">
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                            <li class="list-inline-item"><a class="d-flex" target="_blank" href="https://instagram.com/decorental"><i class="fa fa-instagram"></i><p>@decorental</p></a></li>
+                            <li class="list-inline-item"><a class="d-flex" target="_blank" href="https://instagram.com/decorentalmobiliario"><i class="fa fa-instagram"></i><p>@decorentalmobiliario</p></a></li>
                         </ul>
                     </div>
                     <hr>
